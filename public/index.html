@@ -1,287 +1,169 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="MDW website">
+  <meta name="author" content="Tim Lustberg">
 
   <title>Medical Data Works</title>
 
   <!-- Font Awesome Icons -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-  <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-  <!-- Theme CSS - Includes Bootstrap -->
-  <link href="css/creative.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/small-business.css" rel="stylesheet">
 
 </head>
 
-<body id="page-top">
+<body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-      <img class="img-fluid" width="70px" height= "70px" src="img/Logo.png" alt="">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top"><p> Medical Data Works</p></a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <img class="img-fluid" style="margin-right: 20px;" width="320px" height= "100px" src="img/Logo.png" alt="">
+      <!-- <a class="navbar-brand" href="#">Medical Data Works</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Diensten</a>
+            <a class="nav-link active" href="./index.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-nl"> </span> Nederlands</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown09">
-                <a class="dropdown-item" href="./index_en.html"><span class="flag-icon flag-icon-us"> </span>  Engels</a>
+              <!-- <a class="nav-link" href="#"> Services</a> -->
+            <div class="nav-item nav-link dropdown">
+              <div class="dropdown-toggle" id="dropdownMenuServices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Solutions
+              </div>  
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuServices">
+                <a class="dropdown-item" href="./imaging.html">Medical Imaging</a>
+                <a class="dropdown-item" href="./distributed.html">Distributed Learning</a>
+                <a class="dropdown-item" href="./fair.html">FAIR data</a>
+              </div>
             </div>
-        </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./team.html">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contact</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Masthead -->
-  <header class="masthead">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center justify-content-center text-center">
-        <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">Medical Data Works</h1>
-          <hr class="divider my-4">
-        </div>
-        <div class="col-lg-8 align-self-baseline">
-            <p class="text-white-75 font-weight-light mb-5"> Welkom op onze website, wij hopen dat je kunt vinden wat je zocht! </p>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- Page Content -->
+  <div class="container">
 
-  <!-- Services Section -->
-  <section class="page-section" id="services">
-    <div class="container">
-      <h2 class="text-center mt-0">Wat kunnen we voor je doen?</h2>
-      <hr class="divider my-4">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-4x fa-database text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Data eerlijker maken (FAIR)</h3>
-            <p class="text-muted mb-0">...</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-4x fa-id-badge text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Medische beelden opslaan</h3>
-            <p class="text-muted mb-0">...</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-4x fa-file-archive text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Medische beelden verwerken</h3>
-            <p class="text-muted mb-0">...</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-4x fa-comments text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Advies geven</h3>
-            <p class="text-muted mb-0">...</p>
-          </div>
-        </div>
+    <!-- Heading Row -->
+    <div class="row align-items-top my-5">
+      <div class="col-lg-7">
+        <img class="img-fluid rounded mb-4 mb-lg-0" width=900px src="./img/research_essay.jpg" alt="http://placehold.it/900x400">
       </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section id="portfolio">
-    <div class="container-fluid p-0">
-      <div class="row no-gutters">
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
-            <div class="portfolio-box-caption p-3">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
+      <!-- /.col-lg-8 -->
+      <div class="col-lg-5">
+        <h1 class="heading-1 text-center">
+          Preserving Great Ideas
+        </h1>
+        <div class="divider-1"><span></span></div>
+  
+        <p class=text-justify>
+          A lot of research projects create innovative solutions for health care.
+          However, when the project (and funding) ends a lot of these great solutions do not get used.
+          And for good reason, the researcher writes software with a different intention, to perform their research.
+          Medical Data Works specializes in adopting and adapting these solutions for broader use.
+          To make sure the research software runs smoothly we provide support contracts</p>
       </div>
+      <!-- /.col-md-4 -->
     </div>
-  </section>
+    <!-- /.row -->
 
-  <!-- Call to Action Section -->
-  <!-- <section class="page-section bg-dark text-white">
-    <div class="container text-center">
-      <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-      <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
-    </div>
-  </section> -->
-  <!-- About Section -->
-  <section class="page-section bg-primary" id="team">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="text-white mt-0">We've got what you need!</h2>
-          <hr class="divider light my-4">
-          <p class="text-white mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
-          <!-- <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a> -->
-          <div class="row">
-          <!-- Johan -->
-          <div class="col-sm-4 text-center ">
-            <img class="img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Twinkle&skinColor=Light'/>
-            <p class="text-white mt-0">Johan van Soest</p>
-          </div>
-          <!-- TimH -->
-          <div class="col-sm-4 text-center ">
-            <img class="img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=NoHair&accessoriesType=Blank&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=BlazerShirt&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light'/>
-            <p class="text-white mt-0">Tim Hendriks</p>
-          </div>
-          <!-- TimL -->
-          <div class="col-sm-4 text-center">
-            <img class="img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairBun&accessoriesType=Blank&hairColor=Brown&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=BlazerShirt&eyeType=Happy&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Light'/>
-            <p class="text-white mt-0">Tim Lustberg</p>
-            <p class="text-white mt-0">
-              Some test description!
-              more more more!
+    <!-- Call to Action Well -->
+    <!-- <div class="card text-white my-5 py-4 text-center bg-dark card-mdw">
+      <div class="card-body">
+        <p class="text-white">Medical Data Works contributes to medical research by providing support for Open Source software projects</p>
+      </div>
+    </div> -->
+
+    <!-- Content Row -->
+    <div class="row">
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="heading-2 text-center">Medical Imaging</h2>
+            <div class="divider-2"><span></span></div>
+            <p class="card-text">
+              Imaging becoming more and more important. 
+              We provide support for Open Source projects to manage, analyze and store medical images. 
+              We also provide a centralized image archive to support research.
             </p>
           </div>
-        </div>
+          <!-- <div class="card-footer">
+            <a href="./imaging.html" class="btn btn-primary btn-sm btn-mdw">More Info</a>
+          </div> -->
         </div>
       </div>
-    </div>
-  </section>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="heading-2 text-center">Distributed Learning</h2>
+            <div class="divider-2"><span></span></div>
+            <p class="card-text">
+              When you cannot bring the data together, bring the application to the data. 
+              We provide support for setting up a distributed learning client and we host a distributed learning server.
+            </p>
+          </div>
+          <!-- <div class="card-footer">
+            <a href="./distributed.html" class="btn btn-primary btn-sm btn-mdw">More Info</a>
+          </div> -->
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="heading-2 text-center">FAIR data</h2>
+            <div class="divider-2"><span></span></div>
+            <p class="card-text text-justify">
+              FAIR data will enable researchers to reduce rework and improve the innovation speed of data science in healthcare. 
+              We provide advice and customized software solutions to support FAIR data infrastructure</p>
+          </div>
+          <!-- <div class="card-footer">
+            <a href="./fair.html" class="btn btn-primary btn-sm btn-mdw">More Info</a>
+          </div> -->
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
 
-  <!-- Contact Section -->
-  <section class="page-section" id="contact">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="mt-0"> Hoe kun je ons bereiken? </h2>
-          <hr class="divider my-4">
-          <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-          <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-          <div>+1 (202) 555-0149</div>
-        </div>
-        <div class="col-lg-4 mr-auto text-center">
-          <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-          <!-- Make sure to change the email address in anchor text AND the link below! -->
-          <a class="d-block" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
-        </div>
-      </div>
     </div>
-  </section>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="bg-light py-5">
+  <footer class="py-5 bg-light">
     <div class="container">
-      <div class="small text-center text-muted">Copyright &copy; 2019 - Start Bootstrap</div>
+      <p class="m-0 text-left text-footer"> &copy; 2019 Medical Data Works. All Rights Reserved.</p>
     </div>
+    <!-- /.container -->
   </footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/creative.min.js"></script>
 
 </body>
 
