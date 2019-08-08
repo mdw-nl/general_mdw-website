@@ -18,17 +18,15 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <!-- CSS Files -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./assets/css/paper-kit.css?v=2.3.0" rel="stylesheet" />
+    <link href="./assets/css/paper-kit.css" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="./assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="sections-page sidebar-collapse">
 
-    <!--     *********     HEADER 2      *********      -->
-    <div class="header-2">
-        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute">
-            <div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top  navbar-transparent" color-on-scroll="500">
+        <div class="container">
                 <a class="navbar-brand mb-0" href="#home"><img class="img-fluid" style="margin-right: 20px;" width="320px" height="100px" src="assets/img/Logo.png" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent2" aria-expanded="false"
@@ -39,16 +37,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent2">
                     <ul class="navbar-nav ml-auto">
-                        <!-- <a href="#rchive" class="btn btn-link btn-neutral">Rchive</a>
+                     <!-- <a href="#rchive" class="btn btn-link btn-neutral">Rchive</a>
                         <a href="#consulting" class="btn btn-link btn-neutral">Consulting</a>
-                        <a href="#team" class="btn btn-link btn-neutral">About us</a> -->
-                        <a href="./contact.html" class="btn btn-link btn-neutral" style="color:#bcbec0 !important;">Contact us</a>
+                        <a href="#team" class="btn btn-link btn-neutral">About us</a> 
+                        <a href="#contact" class="btn btn-link btn-neutral" style="color:#bcbec0 !important;">Contact us</a> -->
                     </ul>
-                </div>
+¡                </div>
             </div>
-        </nav>
-        <div class="page-header"
-            style="background-image: url('assets/img/background-image.jpg');">
+      </nav>
+
+    <!--     *********     HEADER 2      *********      -->
+    <div class="header-2 section cd-section" id="home"> 
+        <div class="page-header">
             <!-- <div class="filter"></div> -->
             <div class="content-center">
                 <div class="container">
@@ -74,7 +74,7 @@
     </div>
     <!--     *********    END HEADER 1      *********      -->
     <!--     *********     FEATURES 2      *********      -->
-    <div class="features-2  section cd-section" id="rchive">
+    <div class="features-2 section section-gray cd-section" id="rchive">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto text-center">
@@ -140,7 +140,7 @@
     </div>
     <!--     *********    END FEATURES 2      *********      -->
     <!--     *********    PROJECTS 2     *********      -->
-    <div class="projects-2 section section-dark cd-section" id='consulting'>
+    <div class="projects-2 section cd-section" id='consulting'>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto text-center">
@@ -217,7 +217,7 @@
     </div>
     <!--     *********    END PROJECTS 2      *********      -->
     <!--     *********    TEAM 1     *********      -->
-    <div class="team-1 section cd-section" id='team'>
+    <div class="team-1 section section-gray cd-section" id='team'>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto text-center">
@@ -321,15 +321,15 @@
     </div>
     <!--     *********    END TEAM 1      *********      -->
     <!--     *********    CONTACT US 1     *********      -->
-    <div class="contactus-1 section-image section cd-section" style="background-image: url('./assets/img/sections/soroush-karimi.jpg')"
-        id="contact">
-                <div class="container">
+    <div class="contactus-1 section section cd-section" id="contact">  
+            <!-- style="background-image: url('./assets/img/sections/soroush-karimi.jpg')" -->
+                <div class="container" >
                     <div class="row">
-                        <div class="col-md-10 ml-auto mr-auto">
-                            <div class="card no-transition align-self-end">
+                        <div class="col-md-12 ml-auto mr-auto">
+                            <div class="no-transition align-self-end" >
                                 <h3 class="card-title text-center">Contact Us</h3>
                                 <div class="row">
-                                    <div class="col-md-5 ml-auto">
+                                    <div class="col-md-4 ml-auto">
                                         <div class="card-body">
                                             <div class="info info-horizontal">
                                                 <div class="icon icon-info">
@@ -372,7 +372,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-5 mr-auto">
+                                    <div class="col-md-8 mr-auto">
                                         <div class="card-body">
                                             <div style="margin-top: 2.2em">
                                             <iframe
@@ -426,72 +426,11 @@
         </ul>
     </nav>
     <!--     *********    END VERTIVAL NAV      *********      -->
-
-    <footer class="footer footer-big">
+    <footer class="py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-9 ml-auto mr-auto">
-                    <div class="links">
-                        <ul class="uppercase-links">
-                            <li>
-                                <a href="#paper-kit">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#paper-kit">
-                                    Company
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#paper-kit">
-                                    Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#paper-kit">
-                                    Team
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#paper-kit">
-                                    Blog
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#paper-kit">
-                                    Contact
-                                </a>
-                            </li>
-                        </ul>
-                        <hr />
-                        <div class="copyright">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="col-md-4 col-sm-2">
-                    <div class="social-area">
-                        <a href="#facebook" class="btn btn-round btn-just-icon btn-facebook facebook-sharrre">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </a>
-                        <a href="#twitter" class="btn btn-just-icon btn-round btn-twitter twitter-sharrre">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                        </a>
-                        <a href="#google" class="btn btn-just-icon btn-round btn-google google-sharrre">
-                            <i class="fa fa-google-plus" aria-hidden="true"></i>
-                        </a>
-                        <a href="#pin" class="btn btn-just-icon btn-round btn-pinterest pinterest-sharrre">
-                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div> -->
-            </div>
+          <p class="m-0 text-left text-footer"> &copy; 2019 Medical Data Works. All Rights Reserved.</p>
         </div>
-    </footer>
+      </footer>
 
     <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
