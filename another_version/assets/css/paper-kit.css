@@ -24,6 +24,10 @@
  * Copyright 2012-2013 Mattia Larentis
  * http://www.apache.org/licenses/LICENSE-2.0
  */
+ body {
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+}
  
 .bootstrap-switch {
   display: inline-block;
@@ -3251,7 +3255,7 @@ h3 .small {
 }
 
 .description {
-  color: #9A9A9A;
+  color: #66615B;
 }
 
 blockquote small {
