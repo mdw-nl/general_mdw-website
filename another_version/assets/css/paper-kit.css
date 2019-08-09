@@ -24,10 +24,10 @@
  * Copyright 2012-2013 Mattia Larentis
  * http://www.apache.org/licenses/LICENSE-2.0
  */
- body {
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+ /* body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
-}
+} */
  
 .bootstrap-switch {
   display: inline-block;
@@ -1575,7 +1575,7 @@ select.selectpicker {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.5em;
   margin: 3px;
   border-radius: 50%;
@@ -3128,7 +3128,7 @@ textarea {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: "Montserrat", "Helvetica", Arial, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 h1,
@@ -3334,7 +3334,7 @@ blockquote small {
   border-left: 0 none;
   border-bottom: 1px solid #CCC5B9;
   border-top: 1px solid #CCC5B9;
-  font-weight: 300;
+  font-weight: 400;
   margin: 15px 0 10px;
   text-align: center;
 }
@@ -3354,7 +3354,7 @@ blockquote small {
 body {
   color: #66615b;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   font-family: 'Montserrat', "Helvetica", Arial, sans-serif;
 }
 
@@ -8324,7 +8324,7 @@ textarea.form-control {
 .table>thead>tr>th {
   border-bottom-width: 0;
   font-size: 1.35em;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .table .radio,
@@ -8349,7 +8349,7 @@ textarea.form-control {
 
 .table .td-price {
   font-size: 26px;
-  font-weight: 300;
+  font-weight: 400;
   margin-top: 5px;
   text-align: right;
 }
@@ -8386,7 +8386,7 @@ textarea.form-control {
 .table-shopping>thead>tr>th {
   color: #a49e93;
   font-size: 1.1em;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .table-shopping>tbody>tr>td {
@@ -8403,7 +8403,7 @@ textarea.form-control {
 .table-shopping .td-price,
 .table-shopping .td-total {
   font-size: 1.2em;
-  font-weight: 300;
+  font-weight: 400;
   min-width: 130px;
   text-align: right;
 }
@@ -9101,7 +9101,7 @@ textarea.form-control {
   font-size: 1.825em;
   border: 0;
   padding: 0;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 54px;
   background-color: transparent;
 }
