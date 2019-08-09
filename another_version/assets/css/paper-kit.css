@@ -13356,6 +13356,9 @@ body {
   padding: 70px 0;
   position: relative;
   background-color: #FFFFFF;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .section .card-profile {
