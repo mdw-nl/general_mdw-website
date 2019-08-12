@@ -1,61 +1,34 @@
-"use strict";
+var gulp = require('gulp');
+var path = require('path');
+var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var sourcemaps = require('gulp-sourcemaps');
+var open = require('gulp-open');
 
-// Load plugins
-const browsersync = require("browser-sync").create();
-const del = require("del");
-const gulp = require("gulp");
-const merge = require("merge-stream");
+var Paths = {
+  HERE: './',
+  DIST: 'dist/',
+  CSS: './assets/css/',
+  SCSS_TOOLKIT_SOURCES: './assets/scss/paper-kit.scss',
+  SCSS: './assets/scss/**/**'
+};
 
-// BrowserSync
-function browserSync(done) {
-  browsersync.init({
-    server: {
-      baseDir: "./"
-    },
-    port: 3000
-  });
-  done();
-}
+gulp.task('compile-scss', function() {
+  return gulp.src(Paths.SCSS_TOOLKIT_SOURCES)
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(sourcemaps.write(Paths.HERE))
+    .pipe(gulp.dest(Paths.CSS));
+});
 
-// BrowserSync reload
-function browserSyncReload(done) {
-  browsersync.reload();
-  done();
-}
+gulp.task('watch', function() {
+  gulp.watch(Paths.SCSS, ['compile-scss']);
+});
 
-// Clean vendor
-function clean() {
-  return del(["./vendor/"]);
-}
+gulp.task('open', function() {
+  gulp.src('presentation.html')
+    .pipe(open());
+});
 
-// Bring third party dependencies from node_modules into vendor directory
-function modules() {
-  // Bootstrap
-  var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*')
-    .pipe(gulp.dest('./vendor/bootstrap'));
-  // jQuery
-  var jquery = gulp.src([
-      './node_modules/jquery/dist/*',
-      '!./node_modules/jquery/dist/core.js'
-    ])
-    .pipe(gulp.dest('./vendor/jquery'));
-  return merge(bootstrap, jquery);
-}
-
-// Watch files
-function watchFiles() {
-  gulp.watch("./**/*.css", browserSyncReload);
-  gulp.watch("./**/*.html", browserSyncReload);
-}
-
-// Define complex tasks
-const vendor = gulp.series(clean, modules);
-const build = gulp.series(vendor);
-const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
-
-// Export tasks
-exports.clean = clean;
-exports.vendor = vendor;
-exports.build = build;
-exports.watch = watch;
-exports.default = build;
+gulp.task('open-app', ['open', 'watch']);
