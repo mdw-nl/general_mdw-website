@@ -9379,7 +9379,7 @@ video {
   transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
 }
 
-.card:not(.card-plain):hover {
+.card:not(.card-plain):not(.card-portfolio-front):not(.card-portfolio-back):hover {
   box-shadow: 0px 12px 19px -7px rgba(0, 0, 0, 0.3);
   transform: translateY(-10px);
   -webkit-transform: translateY(-10px);
@@ -9396,10 +9396,6 @@ video {
   -webkit-transform: none;
   -ms-transform: none;
   -moz-transform: none;
-}
-
-.card a:not(.btn) {
-  color: #444444;
 }
 
 .card a:not(.btn):hover,
@@ -10168,6 +10164,55 @@ video {
 
 .card-plain img {
   border-radius: 12px;
+}
+
+.card-portfolio-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-portfolio-front, .card-portfolio-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+/* Style the back side */
+.card-portfolio-back {
+  transform: rotateY(180deg);
+}
+
+.card-portfolio {
+  width: 100%;
+  height: 20vh;
+  background-color: transparent;
+  text-align: center;
+  perspective: 1000px;
+}
+
+.card-portfolio-front .img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.card-portfolio-back .card-description {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.card-portfolio:hover .card-portfolio-inner {
+  transform: rotateY(180deg);
 }
 
 .card-pricing {
@@ -13520,7 +13565,7 @@ body {
 }
 
 .section-light-blue {
-  background-color: #51cbce;
+  background-color: #00aeef;
   color: #FFFFFF;
 }
 
@@ -14179,6 +14224,47 @@ body {
   top: 260%;
   height: 70px;
   width: 70px;
+}
+
+
+#portfolio .portfolio-1.section-image .card-contact {
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+#portfolio .portfolio-1.section-image .title {
+  margin-top: 15%;
+}
+
+#portfolio .portfolio-1 .info-horizontal {
+  margin-left: 0;
+}
+
+#portfolio .portfolio-1 .description,
+#portfolio .portfolio-1 .info-title {
+  color: #333333 !important;
+}
+
+#portfolio .portfolio-1+.portfolio-2 {
+  padding-top: 0;
+}
+
+#portfolio .portfolio-2 {
+  position: relative;
+}
+
+#portfolio .portfolio-2 .card {
+  top: 60px;
+}
+
+#portfolio .portfolio-2 .big-map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#portfolio .card-contact .card-body .checkbox {
+  margin-top: 5px;
 }
 
 #contact-us .contactus-1.section-image .card-contact {
