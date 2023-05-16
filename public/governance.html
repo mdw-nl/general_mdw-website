@@ -64,6 +64,7 @@
                     <p class="card-category card-title text-left " style="color: #66615b">
                         Railway implements a privacy preserving federated infrastructure as proposed
                         by the Personal Health Train. The main principle of the Personal Health Train is to bring questions to the data rather than moving data.
+                        This concept is called Federated Learning.
                         <br /> 
                         In this section, the governance of projects based on Railway is discussed.
                     </p>
@@ -94,14 +95,46 @@
                         Railway - the Personal Health Train implementation of Medical Data Works - has setup a governance 
                         with the following principles: 
                         <ul>
-                            <li><b>Lawfulness, fairness and transparency: xxx.</b></li>
-                            <li><b>Accountability: xxx.</b></li>
-                            <li><b>Purpose limitation: XXX.</b></li>
-                            <li><b>Data minimization: XXX.</b></li>
+                            <li><b>Lawfulness, fairness and transparency:</b>
+                                A project (aka consortium or collaboration) agreement must be agreed upon by each project using Railway. 
+                                This project agreement is between the organizations that provide Stations and/or Trains.
+                                A template of such an agreement is provided below. 
+                                The project agreement has a number of elements including
+                                <ul>
+                                    <li>A list of members involved in the project and who the leading member is</li>
+                                    <li>A list of Stations and a description of the data elements that they contain</li>
+                                    <li>A description of the Trains being deployed in the project</li>
+                                    <li>How GDPR or other regulations will be adhered to - see this section for GDPR specific aspects</li>
+                                    <li>Intellectual property, results ownership, revenue sharing, publication, and authorship matters</li>
+                                </ul> 
+                                Note that Medical Data Works is typically not a party in such an agreement.
+                                <br> The project agreeement ensures that only projects are conducted on Railway that all parties have agreed on.
+                            </li>
+                            <li><b>Accountability:</b> Each Station, Track and Train providing organization is responsible and accountable for its own activities.</li>
+                            <li><b>Purpose limitation:</b> In the project agreement the goals of the project should be clearly described.</li>
+                            <li><b>Data minimization:</b> In the project agreement the data elements needed for the project should be clearly described and 
+                                proportional to the project goals.</li>
                             <li><b>Integrity & confidentialty: XXX.</b></li>                   
-                            <li><b>Digital sovereignty & data control: XXX.</b></li>  
-                            <li><b>Open source, open standards, open access: XXX</b></li>             
-                            <li><b>Neutrality: XXX</b></li>
+                            <li><b>Digital sovereignty & data control:</b> A Station or Train provider may choose their own digital solution 
+                                as long as these choices do not harm interoperability between Stations and Trains. This is a matter for the project partners to decide on.
+                                Medical Data Works takes no position in these matters.
+                            <br>At all times will a Station be in control of their own data. The Station actively allows a Train to access its data and it can 
+                            deny or revoke that access at any moment and for any reason.
+                                </li>  
+                            <li><b>Open source, open access, open standards:</b> Medical Data Works uses the open source Vantage6 infrastructure (link)
+                                and is a member of its open source community. Any addition, improvement or modification that Medical Data Works does in its projects
+                                is made open source using the same license as Vantage6. 
+                                <br>
+                                Medical Data Works provides all its legal templates and publications open access under a creative commons license (NAME LICENSE)
+                                <br>
+                                Medical Data Works is commited to support open standards including open health data standards such as FHIR, DICOM and openEHR,  
+                                Semantic Web standards (RDF, RDFS, OWL, SHACL) and subscribes to the FAIR data principles. 
+                            </li>             
+                            <li><b>Neutrality:</b> Medical Data Works offers Railway as a supported open-source service with no claim on any intellectual property 
+                                or other results that are developed using its infrastructure. It does not mandate the use of specific data formats, programming languages
+                                or mathematical methods by Trains or Stations and they can be proprietary. Users of Railway can come from any part of the world and be
+                                commercial or non-commercial. 
+                            </li>
                         </ul>
                     </p>
                     <br>
@@ -111,7 +144,31 @@
                     <hr style="border-color: #00adef;">
                     </hr>
                     <p class="card-category card-title text-left " style="color: #66615b">
-                        TBD
+                        The Personal Health Train is based on Federated Learning where the question travels to the data, rather than data moving.
+                        Thus no personal data is shared between parties. Only statistical, anonymous data is shared via the Track.
+                        All data processing takes place in the Station. As such it is a privacy-by-design infrastructure.
+                        <br>As data processing on personal data is taking place in any Personal Health Train project, the GDPR roles of (joint)controller
+                        and processor needs to be defined and proper agreements between joint controller and/or controller and processor need to reached.
+                        <br>Under GDPR, a controller is the legal entity that "XXXX". 
+                        In the case of the Personal Health Train, the Train provider is a controller as it is the entity asking the question. 
+                        However, in Personal Health Train projects, this leads to the peculiar situation that the controller (typically a university or a company)
+                        does not have or control (in the common sense) any data. The Train provider has no access to data in the Station 
+                        nor does it control how it gets into the Station. Because of this, the Train provider cannot fullfill some of the responsibilities
+                        that the GDPR puts on it. Specifically XXXX. It has to delegate these responsibilities to the Stations.
+                        <br>The Station providers have a choice  which GDPR role they assume. They have two options:
+                        <ul>
+                        <li>Processor: If they are not involved in defining the Train (i.e. the question being posed to the data) and are "simply" a data provider, 
+                            then a role as processor seems in order. In the data processing agreement the processor needs to take on some responsibilities
+                            of the controller / Train provider (see above).</li>
+                        <li>Joint controller: If they are involved in defining the Train then a role as controller seems in order. 
+                            The Station provider then becomes a joint controller with the Train provider. 
+                            In the joint controller agreement the responsibilities of each party needs to be defined.</li>
+                        </ul>
+                        The above GDPR aspects are implemented in the template project agreement given below.
+                        <br>
+                        Note that the Track provider (in Railway this is Medical Data Works) has no GDPR role. 
+                        This is because  legal and technical measures ensure that only anonymous data is shared via the Track.
+                        Anonymous data falls out of the scope of GDPR.
                     </p>
                     <br>
                     <h4 class="card-category card-title text-left " style="color: #66615b">
@@ -131,7 +188,7 @@
                                 <br>Typically the reserch protocol is an annex to this agreement.
                                 <br>Optionally financial, intellectual property, autorship etc. clauses are part of this agreement.
                                 <br>Note that typically Medical Data Works is not a party in the project agreement.</li>
-                            <li><b>Review and sign project agreement:</b> Teh project agreement typically requiresl legal review approval before being signed by all parties.</li>
+                            <li><b>Review and sign project agreement:</b> The project agreement typically requiresl legal review approval before being signed by all parties.</li>
                             <li><b>Get approval for research protocol:</b> The research protocol typically needs to be reviewed and approved 
                                 by internal review boards at parties providing Stations and (if required) parties poviding Trains.</li>
                             <li><b>For parties subject to GDPR:</b> Complete a Data Privacy Impact Assessment (example below).</li>
