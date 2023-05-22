@@ -206,11 +206,46 @@
                         The above GDPR aspects are implemented in the template project agreement given below.
                         <br><br>
                         <h5 class="card-category card-title text-left " style="color: #66615b">
-                            The Track Provider does not have a GDPR role
+                            Track Provider does not have a GDPR role
                         </h5>
-                        Note that the Track provider (in Railway this is Medical Data Works) has no GDPR role. 
-                        This is because  legal and technical measures ensure that only anonymous data is shared via the Track.
-                        Anonymous data falls out of the scope of GDPR.
+                        As stated above, the main principle of the Personal Health Train / Federated Learning is to bring questions to the data rather than moving data. 
+                        The role of the Track is thus <u>not</u> to move data but to bring questions (Trains) to the data (Stations). 
+                        As such, no patient/personal data shall be processed on the Track. As a consequence, the Track provider (in Railway this is Medical Data Works) 
+                        has no GDPR role, it is neither a controller nor a processor.
+                        <br>
+                        The only data that is shared via the track is statistical data, 
+                        the answer to the reseach question, which is anonymous data and falls out of the scope of GDPR.
+                        There are a number of legal and technical measures to ensure that no patient/personal data is shared via the Track:
+                        <ul>
+                            <li>All providers of Stations and/or Trains using the Track have to sign an Infrastructure User Agreement which explicitly 
+                                forbids the use of the Track to share patient/personal data.</li>
+                            <li>The Infrastructure User Agreement dictates that any project in which the Station or Train provider participates, is based on a 
+                                project agreement in which it is defined what questions are being asked / Trains are deployed and which organizations are involved
+                                in which role (Station/Train/both).</li>
+                            <li>Medical Data Works will create a project-specific Track of which only the organizations of the project are members. 
+                                It is technically impossible to deploy Trains to the wrong Stations.</li>
+                            <li>On the direction of the Train provider, Medical Data Works will create users which have the authorization to create Trains.</li>
+                            <li>A Station providers actively allows the Train to enter its Station, in other words this is a pull rather than push system. 
+                                The action for the Train to enter and process data in the Station is  one that the Station providers actively takes. 
+                                At any point and for whatever reason the Station provider can disconnect itself from the Track and reject or remove the Train. 
+                            </li>
+                            <li>Each individual user of the Track is bound to the Individual Terms Of Use which stipulate that it is forbidden to use the Track to 
+                                process patient/personal data and for anything else then the project.</li>
+                        </ul>
+                        Note that as a consequence of this position, Medical Data Works cannot and will refuse to sign a data processing or similar agreement 
+                        as it does not process data.
+                        Any <u>sharing of patient/personal data on the Track constitutes a data breach</u> and the Infrastructure User Agreement and the Individual Terms of Use 
+                        describe this as so.
+                        <br>
+                        The above describes the normal operation of the Track. There are hypothetical scenarios in which the Track is used against its legally 
+                        binding terms by internal staff at the Station, Track or Train provider. 
+                        This is a breach of contract which has legal consequences. Medical Data Works also has a number of technical measures to prevent this from happening.
+                        <br>
+                        There are additional hypothetical scenarios in which the Station, Track or Train is breached by an external agent and Medical Data Works 
+                        has again a number of technical measures to prevent this from happening. 
+                        <br>
+                        These hypothetical scenarios and its counteractions/mitigation can 
+                        be found in the <a href="https://www.medicaldataworks.nl/security">Security documentation</a>.
                     </p>
                     <br>
                     <h4 class="card-category card-title text-left " style="color: #66615b">
