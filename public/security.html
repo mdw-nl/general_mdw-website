@@ -74,10 +74,10 @@
                     </hr>
                     <p class="card-category card-title text-left " style="color: #66615b">
                         The Personal Health Train metaphor defines the following components:
-                        <ul> 
-                            <li><b>Station:</b> An information system that contains sensitive data, such as from patients. 
+                        <ul>
+                            <li><b>Station:</b> An information system that contains sensitive data, such as from patients. In vantage6, this corresponds to node hosted by an organization as part of a collaboration.
                             Typically a hospital or registry provides a Station.</li>
-                            <li><b>Train:</b> Software that encodes a question to be asked to a Station and outputs anonymous, statistical data. 
+                            <li><b>Train:</b> Software that encodes a question to be asked to a Station and outputs anonymous, statistical data.
                             Typically a university or a company provides a Train. </li>
                             <li><b>Track:</b> Software and infrastructure that allow Trains to enter Stations and ask questions.
                             Medical Data Works B.V. provides the Track. </li>
@@ -87,14 +87,47 @@
                     <iframe src="https://player.vimeo.com/video/143245835?h=dc4a61900c" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                     <p><a href="https://vimeo.com/143245835">Personal Health Train</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
                     <h4 class="card-category card-title text-left " style="color: #66615b">
-                        Security Principles
+                        Security Practices
                     </h4>
                     <hr style="border-color: #00adef;">
                     </hr>
                     <p class="card-category card-title text-left " style="color: #66615b">
-                        Medical Data Works has setup a security framework for projects using Railway with the following principles: 
+                        <!--
+                        <img class="emoji" alt="construction" height="20" width="20" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png"> Work in progress
+                        <img class="emoji" alt="construction" height="20" width="20" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png">
+                        <br><br> This is what I do in my notes in markdown / github pages for WIP
+                        -->
                         WORK IN PROGRESS
+                        <br>
+                        <br>
+
+                        Medical Data Works has setup a security framework for Railway projects adhering to the following practices:
+
+                    <ul>
+                        <li> Tracks are TLS protected. We use an <i>https</i> endpoint for our vantage6 server. This protects users form eavesdropping external attackers and Man-in-the-middle attacks.
+                        <li> We use a separate vantage6 servers for different projects housed in our infrastructure, furthering compartmentalization. This way, a potentially compromised Railway project need not imply that a different Railway project is also compromised.
+                    </ul>
+
+                    <h5 class="card-category card-title text-left " style="color: #66615b">
+                            Support for vantage6 security features
+                    </h5>
+                    We offer support for some security settings which vantage6 implements. With them, stations can further enhance their security by:
+                    <ul>
+                        <li> Only allowing a specific set of vetted trains to enter their station. This is, only allowed algorithms will run on a node (station). See vantage6 documentation <a href="https://docs.vantage6.ai/en/main/node/configure.html#security">here</a>. This could prevent an organization from running a malicious algorithms that hasn't met their explicit approval.
+                        <li> Only allowing a specific set of train providers to enter their station. Thereby, for example, only allowing certain universities and institutes to pose questions to the data in a station.
+                        <li> Only allowing trains that come from a specific railway yard (docker registry). An organization might want to place trust in a single docker registry where only a specific set of users have upload access.
+                        <li> Additionally, communications between nodes and users can be encrypted so as to decrease the server's visibility into those communications. See pertinent vantage6 documentation <a href="https://docs.vantage6.ai/en/main/introduction/concepts.html#end-to-end-encryption">here</a>.
+                    </ul>
+
                     </p>
+
+                    <h4 class="card-category card-title text-left " style="color: #66615b">
+                    Attack scenarios and mitigations
+                    </h4>
+                    <hr style="border-color: #00adef;">
+
+                    WORK IN PROGRESS: To some extent, some scenarios and mitigations are explained already above.
+
             </div>
             </div>
         </div>
