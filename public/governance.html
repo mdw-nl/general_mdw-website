@@ -77,7 +77,7 @@
                         <ul> 
                             <li><b>Station:</b> An information system that contains sensitive data, such as from patients. 
                             Typically a hospital or registry provides a Station.</li>
-                            <li><b>Train:</b> Software that encodes a question to be asked to a Station and outputs anonymous, statistical data. 
+                            <li><b>Train:</b> Software that encodes a question to be asked to a Station and outputs anonymous, statistical and optionally encrypted data. 
                             Typically a university or a company provides a Train. </li>
                             <li><b>Track:</b> Software and infrastructure that allow Trains to enter Stations and ask questions.
                             Medical Data Works B.V. provides the Track. </li>
@@ -127,8 +127,9 @@
                             <br><li><b>Digital sovereignty & data control:</b> A Station or Train provider may choose their own digital solution 
                                 as long as these choices do not harm interoperability between Stations and Trains. This is a matter for the project partners to decide on.
                                 Medical Data Works takes no position in these matters.
-                                <br>At all times will a Station be in control of their own data. The Station actively allows a Train to access its data and it can 
-                                deny or revoke that access at any moment and for any reason.
+                                <br>At all times will a Station be in control of their own data. The Station provider has to actively starts its node software 
+                                that allows a Train to access its data and it stop its Station or 
+                                deny or revoke access to its Station at any moment and for any reason.
                                 </li>  
                             <br><li><b>Open source, open access, open standards:</b> Medical Data Works uses the open source 
                                 <a href="https://docs.vantage6.ai/">Vantage6</a> infrastructure
@@ -156,8 +157,9 @@
                     </hr>
                     <p class="card-category card-title text-left " style="color: #66615b">
                         The Personal Health Train is based on Federated Learning where the question travels to the data, rather than data moving.
-                        Thus no personal data is shared between organizations. Only statistical, anonymous data is shared via the Track.
-                        All data processing takes place in the Station. As such it is a privacy-by-design infrastructure.
+                        Thus no personal data is shared between organizations. Only statistical, anonymous and optionally encrypted data is shared via the Track.
+                        All data processing takes place in the Station. As such it is a privacy-by-design infrastructure 
+                        assuming that the Train providers can be trusted which is ensured by legal and technical governance measures.
                         <br><br>As data processing on personal data is taking place in any Personal Health Train project, the GDPR roles of (joint)controller
                         and processor needs to be defined and proper agreements between joint controller and/or controller and processor need to reached.
                         <br><br>Under GDPR, a controller is the legal entity that 
