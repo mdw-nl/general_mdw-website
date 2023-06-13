@@ -153,20 +153,29 @@
                         The Medical Data Works Railway service is a
                          version of the open source Vantage6 software. 
                          <br>
-                         <br>From version 3 of Vantage6 (see 
+                         <br>From version 3 of vantage6 (see 
                          <a href="https://distributedlearning.ai/documents/15/smits2022improved_xYljLTd.pdf">
                             white paper
                         </a>), the following infrastructure is used:
                         <br>
-                        <img src="./assets/img/Vantage6v3Infra.PNG" alt="Vantage6 infrastructure"  width="600" height="350"> 
+                        <img src="./assets/img/Vantage6v3Infra.PNG" alt="vantage6 infrastructure"  width="600" height="350"> 
                         <br>                
                         <br>                
-                        The following security measures are implemented:
+                        Medical Data Works has setup a security framework for Railway projects adhering to the following practices:
                         <ul>
                             <li>Every project (a combination of Stations & Trains) has its own environment</li>
+                            <li>For a given project, only a specific set of vetted Trains are allowed to enter stations. 
+                                This is, only allowed algorithms will visit a Station. 
+                                See vantage6 documentation <a href="https://docs.vantage6.ai/en/main/node/configure.html#security">here</a>. This could prevent an organization from running a malicious algorithms that hasn't met their explicit approval.
+                            <li>For a given project, only a specific set of Train providers are allowed to provide Trains. 
+                                Thereby, for example, only allowing certain universities and institutes 
+                                to pose questions to the data in a Station.
                             <li>Users have user/role based access to the projects of which they are members</li>
-                            <li>Two factor authentication is implemented (from Vantage6 v3.5.0)</li>
-                            <li>Communication between Stations and the Track is optionally encrypted</li>
+                            <li>Two factor authentication is implemented (from vantage6 v3.5.0)</li>
+                            <li>Communications on the Track can be encrypted so as to decrease visibility into those communications. 
+                                See vantage6 documentation <a href="https://docs.vantage6.ai/en/main/introduction/concepts.html#end-to-end-encryption">here</a>.
+                            <li>Only Trains are allowed that come from a specific MDW docker registry. 
+                                An organization might want to place trust in a single docker registry where only a specific set of users have upload access.
                             <li>Stations do not need a public IP / be in the DMZ</li>
                             <li>The project management server and the model aggregration server are separated</li>
                             <li>All central Medical Data Works components are hosted on a European instance of the 
