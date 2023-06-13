@@ -75,9 +75,9 @@
                     <p class="card-category card-title text-left " style="color: #66615b">
                         The Personal Health Train metaphor defines the following components:
                         <ul> 
-                            <li><b>Station:</b> An information system that contains sensitive data, such as from patients. 
-                            Typically a hospital or registry provides a Station.</li>
-                            <li><b>Train:</b> Software that encodes a question to be asked to a Station and outputs anonymous, statistical data. 
+                            <li><b>Station:</b> An information system that contains sensitive data, such as from patients.
+                            Typically a hospital or registry provides a Station. In vantage6, this corresponds to node hosted by an organization as part of a collaboration.</li>
+                            <li><b>Train:</b> Software that encodes a question to be asked to a Station and outputs anonymous, statistical data.
                             Typically a university or a company provides a Train. </li>
                             <li><b>Track:</b> Software and infrastructure that allow Trains to enter Stations and ask questions.
                             Medical Data Works B.V. provides the Track. </li>
@@ -101,13 +101,12 @@
                         <b>Hardware</b>
                         <br>
                         The hardware requirements for a station depend on the size of the data and the local processing
-                        required. 
-                        For tabular data of limited size and processing with classical machine learning or statistics, 
-                        typically the below is sufficient:
+                        required. For tabular data of limited size and processing with classical machine learning or statistics,
+                        typically the below is sufficient, as <a href="https://docs.vantage6.ai/en/main/node/requirements.html">suggested by the vantage6 documentation</a>.
                         <ul>
-                            <li>Memory: 16GB</li>
-                            <li>Storage: 500GB</li>
-                            <li>Processing: 1(v)CPU</lil>
+                            <li>Memory: 4GB</li>
+                            <li>Storage: 50GB</li>
+                            <li>Processing: 1(v)CPU (x86_64 architecture)</lil>
                         </ul>
                         <br>
                         For imaging/free text data and processing with deep learning,
@@ -118,27 +117,28 @@
                             <li>Processing: 1GPU & 1(v)CPU</lil>
                         </ul>
                         <br>
-                        <b>Software</b> 
+                        <b>Software</b>
                         <ul>
-                            <li>Operating System: Ubuntu (preferred), Windows</li>
+                            <li>Operating System: Ubuntu 18.04+ (preferred), Windows 10+</li>
                             <li>Docker</li>
+                            <li>Python</li>
                         </ul>
                         <br>
                         <b>Network</b>
                         <ul>
                             <li>Stable and fast (1 Mbps+) internet connection</li>
-                            <li>Port 443 should be enabled to 
+                            <li>Egress on TCP port 443 should be enabled to:
                                 <ul>
                                     <li>Medical Data Works project management server (fixed IP possible)</li>
-                                    <li>Medical Data Works docker hosting server (fixed IP possible)</li>
-                                    <li>Medical Data Works aggregration server (fixed IP possible)</li>
+                                    <li>Medical Data Works suggested docker registry server (fixed IP possible) (optional)</li>
+                                    <li>Medical Data Works aggregration server (fixed IP possible) (optional)</li>
                                 </ul>
                             </li>
                         </ul>
                         <br>
                     </p>
                     <h5 class="card-category card-title text-left " style="color: #66615b">
-                        Train                        
+                        Train
                     </h5>
                     <p class="card-category card-title text-left " style="color: #66615b">
                         All Trains are based on Docker.
@@ -163,25 +163,26 @@
                         <br>                
                         Medical Data Works has setup a security framework for Railway projects adhering to the following practices:
                         <ul>
-                            <li>Every project (a combination of Stations & Trains) has its own environment</li>
-                            <li>For a given project, only a specific set of vetted Trains are allowed to enter stations. 
-                                This is, only allowed algorithms will visit a Station. 
-                                See vantage6 documentation <a href="https://docs.vantage6.ai/en/main/node/configure.html#security">here</a>. This could prevent an organization from running a malicious algorithms that hasn't met their explicit approval.
-                            <li>For a given project, only a specific set of Train providers are allowed to provide Trains. 
-                                Thereby, for example, only allowing certain universities and institutes 
+                            <li>Every project (a combination of Stations &amp; Trains) has its own environment.</li>
+                            <li>Projects are encouraged to set strong policies for incoming Trains, whereby only a specific set of vetted Trains are allowed to enter stations.
+                                Meaning that only allowed algorithms will able to interact with the data at the Station.
+                                See vantage6 documentation <a href="https://docs.vantage6.ai/en/main/node/configure.html#security">here for these policies.</a>. This could prevent an organization from running a malicious algorithms that hasn't met their explicit approval.
+                            <li>For a given project, only a specific set of Train providers are allowed to provide Trains.
+                                Thereby, for example, only allowing certain universities and institutes
                                 to pose questions to the data in a Station.
-                            <li>Users have user/role based access to the projects of which they are members</li>
-                            <li>Two factor authentication is implemented (from vantage6 v3.5.0)</li>
-                            <li>Communications on the Track can be encrypted so as to decrease visibility into those communications. 
+                            <li>Users have user/role based access to the projects of which they are members.</li>
+                            <li>Two factor authentication is implemented (from vantage6 v3.5.0).</li>
+                            <li>Communications regarding computation results from Station to Station can be encrypted so as to decrease visibility into those communications from the server.
                                 See vantage6 documentation <a href="https://docs.vantage6.ai/en/main/introduction/concepts.html#end-to-end-encryption">here</a>.
-                            <li>Only Trains are allowed that come from a specific MDW docker registry. 
+                            <li>Tracks are TLS protected. We use an <i>https</i> endpoint for our vantage6 server.
+                                This protects users form eavesdropping external attackers and Man-in-the-middle attacks, even when they haven't enabled end-to-end encryption.</li>
+                            <li>Only Trains are allowed that come from a specific MDW-approved docker registry.
                                 An organization might want to place trust in a single docker registry where only a specific set of users have upload access.
                             <li>Stations do not need a public IP / be in the DMZ</li>
-                            <li>The project management server and the model aggregration server are separated</li>
-                            <li>All central Medical Data Works components are hosted on a European instance of the 
-                                Microsoft Azure cloud </li>
+                            <li>The project management server and the model aggregation server are separated</li>
+                            <li>All central Medical Data Works components are hosted in a European (Netherlands) region of Microsoft Azure cloud.</li>
                             <li>Medical Data Works is in the process of certifying Railway 
-                                with ISO 27001</lil>
+                                with ISO 27001</li>
                         </ul>
                     </p>
 
