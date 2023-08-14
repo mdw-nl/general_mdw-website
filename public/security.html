@@ -101,7 +101,10 @@
                         <b>Hardware</b>
                         <br>
                         The hardware requirements for a station depend on the size of the data and the local processing
-                        required. For tabular data of limited size and processing with classical machine learning or statistics,
+                        required. As a rule of thumb, hardware requirements are similar to a single-center or local analysis as the overhead of the federated learning infrastructure is minimal.<br/>
+                        Below we have listed some typical hardware requirements for different dinds of data processing, however these are dependent on the dataset and the analysis to be executed.<br/>
+                        <br/>
+                        For tabular data of limited size and processing with classical machine learning or statistics,
                         typically the below is sufficient, as <a href="https://docs.vantage6.ai/en/main/node/requirements.html">suggested by the vantage6 documentation</a>.
                         <ul>
                             <li>Memory: 4GB</li>
@@ -119,15 +122,17 @@
                         <br>
                         <b>Software</b>
                         <ul>
-                            <li>Operating System: Ubuntu 18.04+ (preferred), Windows 10+</li>
+                            <li>Operating System: Ubuntu 18.04+ (preferred), Windows 10 or higher, macOS 13.x or higher</li>
                             <li>Docker</li>
                             <li>Python</li>
                         </ul>
                         <br>
                         <b>Network</b>
+                        All network activities are conducted as HTTP requests or websockets (which are initiated as a HTTP request). Hence, no opened ports or fixed IP addresses are needed at the station.
+                        However, it is required to reach specific internet addresses as listed below.<br/>
                         <ul>
                             <li>Stable and fast (1 Mbps+) internet connection</li>
-                            <li>Egress traffic to TCP port 443 for TLS should be enabled to:
+                            <li>Egress (outgoing) traffic to TCP port 443 for TLS should be enabled to:
                                 <ul>
                                     <li>Medical Data Works project management server (fixed IP possible)</li>
                                     <li>Docker registry server of choice (fixed IP possible) (optional)</li>
