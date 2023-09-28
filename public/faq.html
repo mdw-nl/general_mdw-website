@@ -100,57 +100,38 @@
                         <br>
                     </p>
                     <h5 class="card-category card-title text-left " style="color: #66615b">
-                        Train
+                        How does the Train get its data from the Station?
                     </h5>
                     <p class="card-category card-title text-left " style="color: #66615b">
-                        All Trains are based on Docker. Depending on the implemented algorithm (Train), the requirements may vary.
+                        All Trains are based on Docker. Inside the Train is an algorithm that needs the data. 
+                        The basic requirement is therefore that the Station has to tell the Train where the data is.
+                        <br> 
+                        This is typically done by providing the Train Docker container with the information like 
+                        <ul>
+                            <li>what the file location of the CSV file is (for simple clinical data) or</li>
+                            <li>what the SPARQL endpoint URL is (for more complex data) or </li>
+                            <li>what the URL is of the XNAT instance (for imaging data). </li>
+                        </ul>
+                        <br>
+                        Note that the above (CSV, SPARQL, XNAT) are some examples that we have encountered, it is not prescribed by the Track how to do this. 
+                        Typically a project decides for themselves what the best syntax of the data is. 
+                        <br>
+                        It is best practice to choose per project one syntax. 
+                        This is because otherwise the Train has to deal with many different ways of getting the data 
+                        (e.g. reading a CSV file in Station 1 and performing a SPARQL query in Station 2) and somebody (the Train provider) has to program each of these connectors.
+                        Note that the Track does not perform any tasks in this interaction between the Station and the Train.
+                        <br> 
+                        It is possible, but not advisable to establish a direct database connection between the Train and the Station's database. 
+                        This is because the database may contain data elements and data subjects that the Train does not need. 
+                        The principle of data minimization of the GDPR then rightly suggests us to create a dataset that only contains the data elements that are needed to answer the specific
+                        question of the train, and this is what we see the vast majority of projects do. 
+                        <br>
+                        As an example, suppose the Station has the data of cancer patients in an OMOP instance. If for a given question only specific data elements from lung cancer patients are required
+                        , it is advised to export frmo this OMOP database a CSV file (or RDF Graph / SPARQL endpoint) with only the lung cancer patients and only those specifc data elements. 
+                        It is then the location of this CSV file that is shared by the Station to the Train rather than the location (and conncctor) of the OMOP database.  
+                        <br>
                     </p>
                     <br>
-                    <h4 class="card-category card-title text-left " style="color: #66615b">
-                        Security
-                    </h4>
-                    <hr style="border-color: #00adef;">
-                    </hr>
-                    <p class="card-category card-title text-left " style="color: #66615b">
-                        The Medical Data Works Railway service is a
-                         version of the open source vantage6 software. 
-                         <br>
-                         <br>From version 3 of vantage6 (see 
-                         <a href="https://distributedlearning.ai/documents/15/smits2022improved_xYljLTd.pdf">
-                            white paper</a>), the following infrastructure is used:
-                        <br>
-                        <center>
-                        <img src="./assets/img/Vantage6v3Infra.PNG" alt="vantage6 infrastructure"  width="600" height="350"> 
-                        </center>
-                        <br>
-                        <br>
-                        Medical Data Works has setup a security framework for Railway projects adhering to the following practices:
-                        <ul>
-                            <li>Every project (a combination of Stations &amp; Trains) has its own environment.</li>
-                            <li>Users have user/role based access to the projects of which they are members.</li>
-                            <li>All central Medical Data Works components are hosted in a European region (Netherlands) of Microsoft Azure cloud.</li>
-                            <li>Tracks are TLS protected. We use an <i>https</i> endpoint for our vantage6 server.
-                                This protects users form eavesdropping external attackers and Man-in-the-middle attacks.</li>
-                            <li>The project management server and the (optional) model aggregation node are separated.</li>
-                            <li>Stations do not need a public IP.</li>
-                            <li>Medical Data Works is in the process of certifying Railway with ISO 27001.</li>
-                        </ul>
-                        Additionally, we offer support for some security settings which vantage6 implements and we encourage projects to use them. With them, stations can further enhance their security by:
-                        <ul>
-                            <li>For a given project, only a specific set of Train providers can be allowed to provide Trains.
-                                Thereby, for example, only allowing certain universities and institutes
-                                to pose questions to the data in a Station.
-                            <li>Projects are encouraged to set strong policies for incoming Trains, whereby only a specific set of vetted Trains are allowed to enter stations.
-                                Meaning that only allowed algorithms potentially subject to review will be able to interact with the data at the Station.
-                                See vantage6 <a href="https://docs.vantage6.ai/en/main/node/configure.html#security">documentation for these policies.</a>. This could prevent an organization from running malicious algorithms that haven't met their explicit approval.
-                            <li>Two factor authentication is implemented (from vantage6 v3.5.0).</li>
-                            <li>Communications regarding computation results from Station to Station can be encrypted so as to decrease visibility into those communications from the server. The tracks themselves would have no visibility into the contents of the Trains (computation results).
-                                See vantage6 documentation <a href="https://docs.vantage6.ai/en/main/introduction/concepts.html#end-to-end-encryption">here</a>.
-                            <li>Only allowing Trains that come from a specific docker registry.
-                                An organization might want to place trust in a single docker registry where, for example, only a specific set of users have upload access.
-                        </ul>
-                    </p>
-
             </div>
             </div>
         </div>

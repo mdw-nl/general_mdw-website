@@ -122,13 +122,16 @@
                         <br>
                         <b>Software</b>
                         <br/>
-                        As Vantage6 is based on executing Docker images, the software requirements are limited the the list below. Please mind that Ubuntu is the preferred operating system, as Docker runs natively on Linux.
+                        As Vantage6 is based on executing Docker images, the software requirements are limited to the list below. Please mind that Ubuntu is the preferred operating system, as Docker runs natively on Linux.
                         Running Vantage6 on Windows requires Docker for Windows, which requires VT-x or AMD-v, as Docker for Windows creates a virtual machine <i>within</i> the operating system. Hence, running Vantage6 on a virtual machine would be preferred with a Linux operating system.<br/>
                         <ul>
                             <li>Operating System: Ubuntu 18.04+ (preferred), Windows 10 or higher, macOS 13.x or higher</li>
                             <li>Docker</li>
                             <li>Python version 3.10 or higher</li>
                         </ul>
+                        <br>
+                        Note that the programming language or sogyware inside the Docker container is not prescribed by our infrastructure, 
+                        rather it is a choice for who made the docker. Typcally we see Python and R being used, but as said this is not a requirement.
                         <br>
                         <b>Network</b>
                         <br/>
