@@ -55,7 +55,7 @@
 
                 <div class="col-md-10 ml-auto mr-auto">
                     <!-- <div style="font-family: Consolas,monaco,monospace !important;" class="row justify-content-center"> -->
-                    <h2 class="row justify-content-center title text text-uppercase">Railway Frequently Asked Questions</h2>
+                    <h2 class="row justify-content-center title text text-uppercase">Railway FAQ</h2>
                     <!-- </div> -->
                     <h4 class="card-category card-title text-center " style="color: #66615b">
                         A Personal Health Train implementation
@@ -93,36 +93,10 @@
                     <hr style="border-color: #00adef;">
                     </hr>
                     <h5 class="card-category card-title text-left " style="color: #66615b">
-                        What are the hardware requirement for a Station
+                        What are the hardware requirements for a Station?
                     </h5>
                     <p class="card-category card-title text-left " style="color: #66615b">
-                        The hardware requirements can be found here <a href="https://www.medicaldataworks.nl/security.html#hardware">
-                        <br>
-                        <b>Software</b>
-                        <br/>
-                        As Vantage6 is based on executing Docker images, the software requirements are limited the the list below. Please mind that Ubuntu is the preferred operating system, as Docker runs natively on Linux.
-                        Running Vantage6 on Windows requires Docker for Windows, which requires VT-x or AMD-v, as Docker for Windows creates a virtual machine <i>within</i> the operating system. Hence, running Vantage6 on a virtual machine would be preferred with a Linux operating system.<br/>
-                        <ul>
-                            <li>Operating System: Ubuntu 18.04+ (preferred), Windows 10 or higher, macOS 13.x or higher</li>
-                            <li>Docker</li>
-                            <li>Python version 3.10 or higher</li>
-                        </ul>
-                        <br>
-                        <b>Network</b>
-                        <br/>
-                        All network activities are conducted as HTTP requests or websockets (which are initiated as a HTTP request). Hence, no opened ports or fixed IP addresses are needed at the station.
-                        However, it is required to reach specific internet addresses as listed below.<br/>
-                        The network requirements are:<br/>
-                        <ul>
-                            <li>Stable and fast (1 Mbps+) internet connection</li>
-                            <li>Egress (outgoing) traffic to TCP port 443 for TLS should be enabled to:
-                                <ul>
-                                    <li>Medical Data Works project management server (fixed IP possible)</li>
-                                    <li>Docker registry server of choice (fixed IP possible) (optional)</li>
-                                    <li>Medical Data Works aggregation node (fixed IP possible) (optional)</li>
-                                </ul>
-                            </li>
-                        </ul>
+                        The hardware requirements can be found here <a href="https://www.medicaldataworks.nl/security.html#requirements">IT requirements</a>
                         <br>
                     </p>
                     <h5 class="card-category card-title text-left " style="color: #66615b">
