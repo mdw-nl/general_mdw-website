@@ -87,24 +87,22 @@
                     </p>
                     <iframe src="https://player.vimeo.com/video/143245835?h=dc4a61900c" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                     <p><a href="https://vimeo.com/143245835">Personal Health Train</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-                    <h4 class="card-category card-title text-left " style="color: #66615b">
-                        FAQ
-                    </h4>
                     <hr style="border-color: #00adef;">
                     </hr>
-                    <h5 class="card-category card-title text-left " style="color: #66615b">
+                    <h4 id="faq1" class="card-category card-title text-left " style="color: #66615b">
                         What are the hardware requirements for a Station?
-                    </h5>
+                    </h4>
                     <p class="card-category card-title text-left " style="color: #66615b">
-                        The hardware requirements can be found here <a href="https://www.medicaldataworks.nl/security.html#requirements">IT requirements</a>
+                        The hardware requirements can be found here <a href="https://www.medicaldataworks.nl/security.html#requirements">IT requirements</a>.
                         <br>
                     </p>
-                    <h5 class="card-category card-title text-left " style="color: #66615b">
+                    <h4 id="faq2" class="card-category card-title text-left " style="color: #66615b">
                         How does the Train get its data from the Station?
-                    </h5>
+                    </h4>
                     <p class="card-category card-title text-left " style="color: #66615b">
                         All Trains are based on Docker. Inside the Train is an algorithm that needs the data. 
                         The basic requirement is therefore that the Station has to tell the Train where the data is.
+                        <br> 
                         <br> 
                         This is typically done by providing the Train Docker container with the information like 
                         <ul>
@@ -112,25 +110,117 @@
                             <li>what the SPARQL endpoint URL is (for more complex data) or </li>
                             <li>what the URL is of the XNAT instance (for imaging data). </li>
                         </ul>
-                        <br>
                         Note that the above (CSV, SPARQL, XNAT) are some examples that we have encountered, it is not prescribed by the Track how to do this. 
                         Typically a project decides for themselves what the best syntax of the data is. 
+                        <br> 
                         <br>
                         It is best practice to choose per project one syntax. 
                         This is because otherwise the Train has to deal with many different ways of getting the data 
                         (e.g. reading a CSV file in Station 1 and performing a SPARQL query in Station 2) and somebody (the Train provider) has to program each of these connectors.
                         Note that the Track does not perform any tasks in this interaction between the Station and the Train.
                         <br> 
+                        <br> 
                         It is possible, but not advisable to establish a direct database connection between the Train and the Station's database. 
                         This is because the database may contain data elements and data subjects that the Train does not need. 
                         The principle of data minimization of the GDPR then rightly suggests us to create a dataset that only contains the data elements that are needed to answer the specific
                         question of the train, and this is what we see the vast majority of projects do. 
+                        <br> 
                         <br>
                         As an example, suppose the Station has the data of cancer patients in an OMOP instance. If for a given question only specific data elements from lung cancer patients are required
-                        , it is advised to export frmo this OMOP database a CSV file (or RDF Graph / SPARQL endpoint) with only the lung cancer patients and only those specifc data elements. 
-                        It is then the location of this CSV file that is shared by the Station to the Train rather than the location (and conncctor) of the OMOP database.  
+                        , it is advised to export from this OMOP database a CSV file (or RDF Graph / SPARQL endpoint) with only the lung cancer patients and only those specifc data elements. 
+                        It is then the location of this CSV file that is shared by the Station to the Train rather than the location (and connector/driver) of the OMOP database.  
                         <br>
                     </p>
+                    <h4 id="faq3" class="card-category card-title text-left " style="color: #66615b">
+                        Does the Train execute SQL commands to the Station's database?
+                    </h4>
+                    <p class="card-category card-title text-left " style="color: #66615b">
+                        In general no. Most projects we support, use a dump from the database (e.g. CSV or RDF) rather than setting up a SQL query. 
+                        See also the answer <a href="#faq2">here</a>. This does not mean it is impossible, but the Train will need to know the JDBC connection string
+                        , load the right driver etc. We have not tested such a scenario.
+                        <br>
+                    </p>
+                    <h4 id="faq4" class="card-category card-title text-left " style="color: #66615b">
+                        What is the recommended file format for the Train to communicate its (intermediate) results across the Track?
+                    </h4>
+                    <p class="card-category card-title text-left " style="color: #66615b">
+                        The format of the communication between the Train and the Track is usually JSON. But anything that can be uploaded using the HTTP protocol is 
+                        fine. Note that for some applications (such as federated deep learning) the JSON may contain many model parameters and can thus be quite big.
+                        For this reason a stable and reasonable fast internet connection is desirable.
+                        <br>
+                    </p>
+                    <h4 id="faq5" class="card-category card-title text-left " style="color: #66615b">
+                        Can different source file syntaxes be used in a given project? E.g. some station using a SQL database and others using a CSV file?
+                    </h4>
+                    <p class="card-category card-title text-left " style="color: #66615b">
+                        This is technically possible but puts the burden on the Train provider to sort these differences out. So it is not advisable. See also the answer <a href="#faq2">here</a>.
+                        <br>
+                    </p>
+                    <h4 id="faq6" class="card-category card-title text-left " style="color: #66615b">
+                        Is there any mechanism that stops subject level data being shared from the Station to the Track?
+                    </h4>
+                    <p class="card-category card-title text-left " style="color: #66615b">
+                        Yes. The most important mechanism is trust between the Stations and the Trains. What the Train can and cannot so is laid down in a mandatory project agreement. 
+                        This limits the Train provider to the (research) question at hand.
+                        <br>
+                        <br>
+                        Also each Train and Station provider signs an infrastructure user agreement with Medical Data WOrks explicitly forbidding the sharing of personal data on the Track. 
+                        Individual users are - per that agreement - bound to individual terms of use (see <a href="./assets/terms-and-conditions.pdf">Terms</a>) 
+                        that explicity forbid this. If Medical Data Works becomes aware that personal data has been shared on the Track it will report this is a 
+                        data breach - per the Infrastructure User Agreement. Note that we have never encountered a data breach.
+                        <br>
+                        <br>
+                         Besides these legal and trust mechanism, every Station can see in the log what has been shared on the Track. 
+                         Also there is the option to code review and subsequently make the Train immutable. This ensures that the Train does what it is supposed to do.
+                         <br>
+                         <br>
+                         One might wonder why there are no additional technical measures on the Track, such as a limit on the volume of data being shared across the Track. 
+                         In earlier versions we had this limit, but it proved unworkable as 1] for some models (e.g. deep learning) the number of parameters is large 
+                         and thus the size of the file being shared on the Track is large and 2] it gives a false sense of security as the data volume of a single patient 
+                         may be small and below this threshold. 
+                         <br>
+                         <br>
+                         Another option to prevent this from happening is using advanced encryption technologies such as secure Multi Party Computation (sMPC). 
+                         Using that technology, the machine learning is done on encrypted data. This means that even if personal data is shared on the Track it is
+                         impossible to use and decrypt. This is possible in the recent versions of vantage6. However, it comes with significant drawbacks in terms of performance
+                         and is not feasible except for the simplest of questions. This is an active area of research. 
+                         <br>
+                    </p>
+                    <h4 id="faq7" class="card-category card-title text-left " style="color: #66615b">
+                        Is the software code / script of the Train and/or result shared on the Track checked by someone from the Station? 
+                        If so, what skillset/role should they have?
+                    </h4>
+                    <p class="card-category card-title text-left " style="color: #66615b">
+                         Typically this is a choice of the project and whether or not the Trains and Stations trust each other. 
+                         As said in this <a href="#faq6">answer</a>, trust is still an important condition in federated learning.
+                         <br>
+                         <br>
+                         If trust is lacking, the best approach is for the Stations to appoint someone to review the code of the Train. 
+                         After review of the code, it is possible to ensure that the Train uses that particular version of the code.
+                         <br>
+                         <br>
+                         Someone checking the code should be versed in the data and the question at hand, and also understand the specific programming language
+                         used in the Train. Medical Data Works has no a prior accepted role in this, as promising this code review would mean Medical Data WOrks staff
+                         have to be experts in every research domain, question and programming language which is unfeasible.    
+                         <br>
+                         <br>
+                         We are working on a library of trusted & certified Trains. These are Trains that have been vetted by the vantage6 community incl. Medical Data Works
+                         and will be certified to be safe. In those Trains, the researcher needs only configure certain parameters but cannot change the code inside the Train.
+                         This will make it easier for researchers to use federated learning and safe for Stations.
+                         <br>
+                         <br>
+                         The Station is able to read the (intermediate) results that are being shared about their Station by the Train. However, note that for some 
+                         machine learning algorithms such as deep learning this is a long file of parameters which may not make sense. 
+                         <br>
+                    </p>
+                    <h4 id="faq8" class="card-category card-title text-left " style="color: #66615b">
+                         Which software does each centre need to download to use vantage6? E.g. do you recommend Docker Pro?
+                    </h4>
+                    <p class="card-category card-title text-left " style="color: #66615b">
+                         The software to be installed can be found here: <a href="https://www.medicaldataworks.nl/security.html#requirements">IT requirements</a>. The free version of DOcker is sufficient. 
+                         <br>
+                    </p>
+
                     <br>
             </div>
             </div>
