@@ -123,7 +123,8 @@
                         It is possible, but not advisable to establish a direct database connection between the Train and the Station's database. 
                         This is because the database may contain data elements and data subjects that the Train does not need. 
                         The principle of data minimization of the GDPR then rightly suggests us to create a dataset that only contains the data elements that are needed to answer the specific
-                        question of the train, and this is what we see the vast majority of projects do. 
+                        question of the train, and this is what we see the vast majority of projects do. However, we also have supported project that do direct querying to a source database, 
+                        so in the end it is up to the consortium/project.
                         <br> 
                         <br>
                         As an example, suppose the Station has the data of cancer patients in an OMOP instance. If for a given question only specific data elements from lung cancer patients are required
@@ -137,7 +138,7 @@
                     <p class="card-category card-title text-left " style="color: #66615b">
                         In general no. Most projects we support, use a dump from the database (e.g. CSV or RDF) rather than setting up a SQL query. 
                         See also the answer <a href="#faq2">here</a>. This does not mean it is impossible, but the Train will need to know the JDBC connection string
-                        , load the right driver etc. We have not tested such a scenario.
+                        , load the right driver etc. We have tested such a scenario and that works. The choice is ultimately up to the consortium/project.
                         <br>
                     </p>
                     <h4 id="faq4" class="card-category card-title text-left " style="color: #66615b">
