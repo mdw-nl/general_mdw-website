@@ -108,33 +108,35 @@
                         <ul>
                             <li>what the file location of the CSV file is (for simple clinical data) or</li>
                             <li>what the SPARQL endpoint URL is (for more complex data) or </li>
-                            <li>what the URL is of the XNAT instance (for imaging data).</li>
+                            <li>what the URL is of the XNAT instance (for imaging data) or</li>
+                            <li>the connection string to a relational database for SQL execution.</li>
                         </ul>
-                        Note that the above (CSV, SPARQL, XNAT) are some examples that we have encountered, it is not prescribed by the Track how to do this. 
+                        Note that the above (CSV, SPARQL, XNAT, SQL) are some examples that we have encountered, it is not prescribed by the Track how to do this. 
                         Typically a project decides for themselves what the best syntax of the data is.
                         <br> 
                         <br>
                         It is best practice to choose per project one syntax. 
                         This is because otherwise the Train has to deal with many different ways of getting the data 
                         (e.g. reading a CSV file in Station 1 and performing a SPARQL query in Station 2) and somebody (the Train provider) has to program each of these connectors.
-                        However, it's good to keep in mind that vantage6 also offers an algorithm wrapper that facilitiates reading 
+                        However, it's good to keep in mind that vantage6 also offers an algorithm wrapper that facilitates reading 
                         data from the following sources: 'csv', 'parquet', 'sql', 'sparql', 'excel' and 'omop'. This can be useful for writing
-                        algorithms (Trains) more comfortably. For more infomration see:
-                        <a href="https://docs.vantage6.ai/en/main/algorithms/concepts.html#wrappers">Vantage6 Wrapper docuemntation</a>.
+                        algorithms (Trains) more comfortably. For more information see:
+                        <a href="https://docs.vantage6.ai/en/main/algorithms/concepts.html#wrappers">Vantage6 Wrapper documentation</a>.
                         <br> 
                         Note that the Track does not perform any tasks in this interaction between the Station and the Train.
                         <br> 
                         <br> 
-                        It is possible, but not advisable to establish a direct database connection between the Train and the Station's database.
-                        This is because the database may contain data elements and data subjects that the Train does not need. 
-                        The principle of data minimization of the GDPR then rightly suggests us to create a dataset that only contains the data elements that are needed to answer the specific
-                        question of the train, and this is what we see the vast majority of projects do. However, we also have supported project that do direct querying to a source database, 
+                        It is possible to establish a direct database connection between the Train and the Station's database.
+                        But remember that the database may contain data elements and data subjects that the Train does not need. 
+                        The principle of data minimization of the GDPR suggests us to create a dataset that only contains the data elements that are needed to answer the specific
+                        question of the train, and this is what we see the vast majority of projects do. 
+                        However, we also have supported project that do direct querying to a source database containing more information than the train needs, 
                         so in the end it is up to the consortium/project.
                         <br> 
                         <br>
                         As an example, suppose the Station has the data of cancer patients in an OMOP instance. If for a given question only specific data elements from lung cancer patients are required
-                        , it is advised to export from this OMOP database a CSV file (or RDF Graph / SPARQL endpoint) with only the lung cancer patients and only those specifc data elements.
-                        It is then the location of this CSV file that is shared by the Station to the Train rather than the location (and connector/driver) of the OMOP database.
+                        , it is advised to export from this OMOP database a separate OMPO instance or a CSV file (or RDF Graph / SPARQL endpoint) with only the lung cancer patients and only those specifc data elements.
+                        It is then the location of this "datamart" that is shared by the Station to the Train rather than the location (and connector/driver) of the OMOP source database.
                         <br>
                     </p>
                     <h4 id="faq3" class="card-category card-title text-left " style="color: #66615b">
