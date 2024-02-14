@@ -19,12 +19,13 @@
     <!-- CSS Files -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./assets/css/paper-kit.css" rel="stylesheet" />
+    <link href="./assets/css/custom.css" rel="stylesheet" />
 </head>
 
 <body class="sections-page sidebar-collapse">
     <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
         <div class="container">
-            <a class="mb-0" href="index.html">
+            <a class="mb-0" href="/">
                 <img class="img-fluid" style="margin-right: 20px;" width="50rem" src="assets/img/Logo_zondertekst.png"
                     alt="">
                 <div class="btn btn-link">Medical Data Works</div>
@@ -38,20 +39,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent2">
                 <ul class="navbar-nav ml-auto custom-nav">
-                    <a href="index.html#pht" class="btn btn-link">Personal Health Train</a>
                     <a href="/governance" class="btn btn-link">Governance</a>
                     <a href="/security" class="btn btn-link ">IT & Security</a>
                     <a href="/customers" class="btn btn-link ">Customers</a>
                     <a href="/faq" class="btn btn-link ">FAQ</a>
-                    <a href="index.html#contact" class="btn btn-link ">Contact</a>
+                    <a href="/about-us" class="btn btn-link ">About Us</a>
+                    <a href="/contact" class="btn btn-link ">Contact</a>
                 </ul>
             </div>
         </div>
     </nav>
+
     <!--     *********     FEATURES 2      *********      -->
-    <div class="features-2 section section-gray cd-section" id="pht">
+    <div class="features-2 section cd-section" id="pht">
         <div class="container">
-            <div class="row">
+            <div class="row pt-5">
 
                 <div class="col-md-10 ml-auto mr-auto">
                     <!-- <div style="font-family: Consolas,monaco,monospace !important;" class="row justify-content-center"> -->
@@ -85,7 +87,9 @@
                         </ul>
                         Below is a video that explains the Personal Health Train.
                     </p>
-                    <iframe src="https://player.vimeo.com/video/143245835?h=dc4a61900c" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                    <div class="mdw-video">
+                        <iframe src="https://player.vimeo.com/video/143245835?h=dc4a61900c" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                     <p><a href="https://vimeo.com/143245835">Personal Health Train</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
                     <h4 class="card-category card-title text-left " style="color: #66615b">
                         Governance Principles
@@ -323,15 +327,11 @@
                         A fee for Railway is charged to the lead party.
                         <br>
                         <br>
-                        <center>
-                        <img src="./assets/img/LegalSetupMDWInsideConsortium.png" 
-                        alt="Legal setup if MDW is a consortium member" width="600" height="250"> 
-                        </center>
+                        <img class="w-100" src="./assets/img/LegalSetupMDWInsideConsortium.png" 
+                        alt="Legal setup if MDW is a consortium member"> 
                         <br>
-                        <center>
-                        <img src="./assets/img/LegalSetupMDWOutsideConsortium.png" 
-                        alt="Legal setup if MDW is not a consortium member" width="600" height="380">
-                        </center>
+                        <img class="w-100" src="./assets/img/LegalSetupMDWOutsideConsortium.png" 
+                        alt="Legal setup if MDW is not a consortium member">
                         <br>
                     </p>
                     <h4 class="card-category card-title text-left " style="color: #66615b">
@@ -355,7 +355,7 @@
     </div>
     <!--     *********    END FEATURES 2      *********      -->
 
-    <footer class="footer">
+    <footer class="footer pt-3">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-4 ml-auto mr-auto">
@@ -370,27 +370,27 @@
                     <div class="links">
                         <ul>
                             <li>
-                                <a href="index.html">
+                                <a href="index.html" style="color: #51bcda">
                                     Home
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.force11.org/group/fairgroup/fairprinciples">
+                                <a href="https://www.force11.org/group/fairgroup/fairprinciples" style="color: #51bcda">
                                     FAIR data principles
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/mdw-nl">
+                                <a href="https://github.com/mdw-nl" style="color: #51bcda">
                                     GitHub
                                 </a>
                             </li>
                             <li>
-                                <a href="./assets/terms-and-conditions.pdf">
+                                <a href="./assets/terms-and-conditions.pdf" style="color: #51bcda">
                                     Terms EN
                                 </a>
                             </li>
                             <li>
-                                <a href="./assets/Algemene voorwaarden Medical Data Works BV.pdf">
+                                <a href="./assets/Algemene voorwaarden Medical Data Works BV.pdf" style="color: #51bcda">
                                     Terms NL
                                 </a>
                             </li>
