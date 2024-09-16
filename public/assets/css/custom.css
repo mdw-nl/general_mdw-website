@@ -48,3 +48,23 @@ iframe {
     width: 100%;
     height: 100%;
 }
+
+.firewall-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.firewall-table th, .firewall-table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.firewall-table th {
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+.firewall-table td:first-child {
+    width: 30%; /* Set a smaller width for the domain column */
+    font-family: monospace; /* Apply a monospace font to the domain column */
+}
