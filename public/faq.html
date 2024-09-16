@@ -53,7 +53,6 @@
     <div class="features-2 section cd-section" id="pht">
         <div class="container">
             <div class="row pt-5">
-
                 <div class="col-md-10 ml-auto mr-auto">
                     <!-- <div style="font-family: Consolas,monaco,monospace !important;" class="row justify-content-center"> -->
                     <h2 class="row justify-content-center title text text-uppercase">Railway FAQ</h2>
@@ -76,7 +75,7 @@
                     </hr>
                     <p class="card-category card-title text-left " style="color: #66615b">
                         The Personal Health Train metaphor defines the following components:
-                        <ul> 
+                        <ul>
                             <li><b>Station:</b> An information system that contains sensitive data, such as from patients.
                             Typically a hospital or registry provides a Station. In vantage6, this corresponds to node hosted by an organization as part of a collaboration.</li>
                             <li><b>Train:</b> Software that encodes a question to be asked to a Station and outputs anonymous, statistical data.
@@ -103,39 +102,39 @@
                         How does the Train get its data from the Station?
                     </h4>
                     <p class="card-category card-title text-left " style="color: #66615b">
-                        All Trains are based on Docker. Inside the Train (docker image) is an algorithm that needs the data. 
+                        All Trains are based on Docker. Inside the Train (docker image) is an algorithm that needs the data.
                         The basic requirement is therefore that the Station has to tell the Train where the data is.
-                        <br> 
-                        <br> 
-                        This is typically done by providing the Train Docker container with the information like 
+                        <br>
+                        <br>
+                        This is typically done by providing the Train Docker container with the information like
                         <ul>
                             <li>what the file location of the CSV file is (for simple clinical data) or</li>
                             <li>what the SPARQL endpoint URL is (for more complex data) or </li>
                             <li>what the URL is of the XNAT instance (for imaging data) or</li>
                             <li>the connection string to a relational database for SQL execution.</li>
                         </ul>
-                        Note that the above (CSV, SPARQL, XNAT, SQL) are some examples that we have encountered, it is not prescribed by the Track how to do this. 
+                        Note that the above (CSV, SPARQL, XNAT, SQL) are some examples that we have encountered, it is not prescribed by the Track how to do this.
                         Typically a project decides for themselves what the best syntax of the data is.
-                        <br> 
                         <br>
-                        It is best practice to choose per project one syntax. 
-                        This is because otherwise the Train has to deal with many different ways of getting the data 
+                        <br>
+                        It is best practice to choose per project one syntax.
+                        This is because otherwise the Train has to deal with many different ways of getting the data
                         (e.g. reading a CSV file in Station 1 and performing a SPARQL query in Station 2) and somebody (the Train provider) has to program each of these connectors.
-                        However, it's good to keep in mind that vantage6 also offers an algorithm wrapper that facilitates reading 
+                        However, it's good to keep in mind that vantage6 also offers an algorithm wrapper that facilitates reading
                         data from the following sources: 'csv', 'parquet', 'sql', 'sparql', 'excel' and 'omop'. This can be useful for writing
                         algorithms (Trains) more comfortably. For more information see:
                         <a href="https://docs.vantage6.ai/en/main/algorithms/concepts.html#wrappers">Vantage6 Wrapper documentation</a>.
-                        <br> 
+                        <br>
                         Note that the Track does not perform any tasks in this interaction between the Station and the Train.
-                        <br> 
-                        <br> 
+                        <br>
+                        <br>
                         It is possible to establish a direct database connection between the Train and the Station's database.
-                        But remember that the database may contain data elements and data subjects that the Train does not need. 
+                        But remember that the database may contain data elements and data subjects that the Train does not need.
                         The principle of data minimization of the GDPR suggests us to create a dataset that only contains the data elements that are needed to answer the specific
-                        question of the train, and this is what we see the vast majority of projects do. 
-                        However, we also have supported project that do direct querying to a source database containing more information than the train needs, 
+                        question of the train, and this is what we see the vast majority of projects do.
+                        However, we also have supported project that do direct querying to a source database containing more information than the train needs,
                         so in the end it is up to the consortium/project.
-                        <br> 
+                        <br>
                         <br>
                         As an example, suppose the Station has the data of cancer patients in an OMOP instance. If for a given question only specific data elements from lung cancer patients are required
                         , it is advised to export from this OMOP database a separate OMPO instance or a CSV file (or RDF Graph / SPARQL endpoint) with only the lung cancer patients and only those specifc data elements.
@@ -146,7 +145,7 @@
                         Does the Train execute SQL commands to the Station's database?
                     </h4>
                     <p class="card-category card-title text-left " style="color: #66615b">
-                        In general no. Most projects we support, use a dump from the database (e.g. CSV or RDF) rather than setting up a SQL query. 
+                        In general no. Most projects we support, use a dump from the database (e.g. CSV or RDF) rather than setting up a SQL query.
                         See also the answer <a href="#faq2">here</a>. This does not mean it is impossible, but the station will need the SQL database connection URI,
                         so that this can later be shared with the Train.
                         We have tested such a scenario and that works. The choice is ultimately up to the consortium/project.
@@ -172,13 +171,13 @@
                         Is there any mechanism that stops subject level data being shared from the Station to the Track?
                     </h4>
                     <p class="card-category card-title text-left " style="color: #66615b">
-                        Yes. The most important mechanism is trust between the Stations and the Trains. What the Train can and cannot so is laid down in a mandatory project agreement. 
+                        Yes. The most important mechanism is trust between the Stations and the Trains. What the Train can and cannot so is laid down in a mandatory project agreement.
                         This limits the Train provider to the (research) question at hand.
                         <br>
                         <br>
-                        Also each Train and Station provider signs an infrastructure user agreement with Medical Data Works explicitly forbidding the sharing of personal data on the Track. 
-                        Individual users are - per that agreement - bound to individual terms of use (see <a href="./assets/terms-and-conditions.pdf">Terms</a>) 
-                        that explicity forbid this. If Medical Data Works becomes aware that personal data has been shared on the Track it will report this is a 
+                        Also each Train and Station provider signs an infrastructure user agreement with Medical Data Works explicitly forbidding the sharing of personal data on the Track.
+                        Individual users are - per that agreement - bound to individual terms of use (see <a href="./assets/terms-and-conditions.pdf">Terms</a>)
+                        that explicity forbid this. If Medical Data Works becomes aware that personal data has been shared on the Track it will report this is a
                         data breach - per the Infrastructure User Agreement. Note that we have never encountered a data breach.
                         <br>
                         <br>
@@ -189,37 +188,37 @@
                          Also there is the option to code review and subsequently make the Train immutable. This ensures that the Train does what it is supposed to do.
                          <br>
                          <br>
-                         One might wonder why there are no additional technical measures on the Track, such as a limit on the volume of data being shared across the Track. 
-                         In earlier versions we had this limit, but it proved unworkable as 1] for some models (e.g. deep learning) the number of parameters is large 
-                         and thus the size of the file being shared on the Track is large and 2] it gives a false sense of security as the data volume of a single patient 
-                         may be small and below this threshold. 
+                         One might wonder why there are no additional technical measures on the Track, such as a limit on the volume of data being shared across the Track.
+                         In earlier versions we had this limit, but it proved unworkable as 1] for some models (e.g. deep learning) the number of parameters is large
+                         and thus the size of the file being shared on the Track is large and 2] it gives a false sense of security as the data volume of a single patient
+                         may be small and below this threshold.
                          <br>
                          <br>
-                         Another option to prevent this from happening is using advanced cryptographic technologies like homomorphic encryption (HE) or secure Multi Party Computation (sMPC). 
-                         Using this technology, the machine learning is aggregated on encrypted data, 
+                         Another option to prevent this from happening is using advanced cryptographic technologies like homomorphic encryption (HE) or secure Multi Party Computation (sMPC).
+                         Using this technology, the machine learning is aggregated on encrypted data,
                          or otherwise computed while keeping the partials private. This means that even if personal data is shared on the Track, it is
-                         virtually impossible to decrypt and use for those that lack the key (HE). 
-                         Some versions of this might be possible to implement (algorithms) with vantage6. 
+                         virtually impossible to decrypt and use for those that lack the key (HE).
+                         Some versions of this might be possible to implement (algorithms) with vantage6.
                          However, it comes with significant drawbacks in terms of performance
                          and is not feasible except for the simplest of questions. This is an active area of research.
                          <br>
                     </p>
                     <h4 id="faq7" class="card-category card-title text-left " style="color: #66615b">
-                        Is the software code / script of the Train and/or result shared on the Track checked by someone from the Station? 
+                        Is the software code / script of the Train and/or result shared on the Track checked by someone from the Station?
                         If so, what skillset/role should they have?
                     </h4>
                     <p class="card-category card-title text-left " style="color: #66615b">
-                         Typically this is a choice of the project and whether or not the Trains and Stations trust each other. 
+                         Typically this is a choice of the project and whether or not the Trains and Stations trust each other.
                          As said in this <a href="#faq6">answer</a>, trust is still an important condition in federated learning.
                          <br>
                          <br>
-                         If trust is lacking, the best approach is for the Stations to appoint someone to review the code of the Train. 
+                         If trust is lacking, the best approach is for the Stations to appoint someone to review the code of the Train.
                          After review of the code, it is possible to ensure that the Train uses that particular version of the code.
                          <br>
                          <br>
                          Someone checking the code should be versed in the data and the question at hand, and also understand the specific programming language
                          used in the Train. Medical Data Works has no a prior accepted role in this, as promising this code review would mean Medical Data Works staff
-                         have to be experts in every research domain, question and programming language which is unfeasible.    
+                         have to be experts in every research domain, question and programming language which is unfeasible.
                          <br>
                          <br>
                          We are working on a library of trusted & certified Trains. These are Trains that have been vetted by the vantage6 community incl. Medical Data Works
@@ -227,8 +226,8 @@
                          This will make it easier for researchers to use federated learning and for node administrators or data owners to trust executions of such tasks on their Station.
                          <br>
                          <br>
-                         The Station is able to read the (intermediate) results that are being shared about their Station by the Train. However, note that for some 
-                         machine learning algorithms such as deep learning this is a long file of parameters which may not make sense. 
+                         The Station is able to read the (intermediate) results that are being shared about their Station by the Train. However, note that for some
+                         machine learning algorithms such as deep learning this is a long file of parameters which may not make sense.
                          <br>
                     </p>
                     <h4 id="faq8" class="card-category card-title text-left " style="color: #66615b">
@@ -238,9 +237,49 @@
                          The software to be installed can be found here: <a href="https://www.medicaldataworks.nl/security.html#requirements">IT requirements</a>. The free version of Docker is sufficient.
                          <br>
                     </p>
-
-                    <br>
-            </div>
+                    <h4 id="node-network-requirements" class="card-category card-title text-left " style="color: #66615b">
+                         What are some typical network requirements for a Node (station)?
+                    </h4>
+                    <p class="card-category card-title text-left " style="color: #66615b">
+                        <b>Network requirements for a node</b>
+                        <p>The node does not require open ports for incoming connections or be reachable from the Internet via a public IP.
+                           It establishes and maintains a WebSockets connection to the vantage6 server hosted by MDW.
+                           Note however that the server might only allow certain public IPs to connect to it, in which case the public IP ultimately used by the node to connect to the Internet (e.g. router's IP) will need to be communicated to MDW.</p>
+                        <p>To manage the node (start, stop, create config files, etc.) at the VM/host level, the <a href="https://pypi.org/project/vantage6/">vantage6 CLI component</a> will need to be downloaded and installed, for example via pip from PyPI.</p>
+                        <p>The vantage6 node itself is packaged in a docker image, that image can be fetched from the official vantage6 docker registry at harbor2.vantage6.ai – the vantage6 CLI component will do this for you by default.</p>
+                        <p>When a request for the execution of an algorithm (<i>task</i>) comes in for the node, the algorithm is provided as a Docker image name. This <a href="https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/">name specifies the registry</a> from where the algorithm image containing the code should be fetched.</p>
+                        <br>
+                        <p>Therefore, a firewall would, for example, need to allow the following outgoing connections to port 443 (HTTPS):
+                        <table class="firewall-table">
+                            <thead>
+                                <tr>
+                                    <th>Domain</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>example.medicaldataworks.nl</code></td>
+                                    <td>Vantage6 server hosted by MDW</td>
+                                </tr>
+                                <tr>
+                                    <td><code>harbor2.vantage6.ai</code></td>
+                                    <td>Official vantage6 Docker image registry hosting node image</td>
+                                </tr>
+                                <tr>
+                                    <td><code>pypi.org, files.pythonhosted.org</code></td>
+                                    <td>PyPI repositories hosting vantage6 CLI tool</td>
+                                </tr>
+                                <tr>
+                                    <td><code>registry-1.docker.io, auth.docker.io, production.cloudflare.docker.com</code></td>
+                                    <td><a href="https://docs.docker.com/desktop/allow-list/">DockerHub domains</a> hosting algorithm, if the algorithm is hosted there</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </p>
+                        This is in addition to any other requirements (e.g. APT repositories for OS updates, SSH access)
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -298,7 +337,7 @@
         </div>
     </footer>
 
- 
+
     <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
     <script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
@@ -333,7 +372,7 @@
                     if (window_width >= 768) {
                         $(window).on('scroll', pk.checkScrollForPresentationPage);
                     }
-                    
+
                     // Javascript method's body can be found in assets/js/core/partials/_demo-object.js
                     demo.initContactUsMap2();
                 });
